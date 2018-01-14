@@ -1,0 +1,11 @@
+<%= simple_form_for @user, :url => users_admin_index_path, :method => :post do |f| %>
+	<%= f.input :email %>
+	<%= f.input :password %>
+	<%= f.submit %>
+<% end %>
+
+<% @emails.each do |email_hash| %>
+	<%= email_hash["email"] %>
+	<%= email_hash["password"] %>
+	<p>-----------------</p>
+<% end %>
