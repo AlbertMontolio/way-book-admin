@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(email: "albert.montolio@waygroup.de", password: "albert.montolio@waygroup.de")
+
+divisions = ["WAY Engineering GmbH", "WAY People+ GmbH", "WAY HR Professionals & Experts GmbH", "WAY IT Solutions GmbH"]
+
+divisions.each do |division_name|
+	Division.create(name: division_name)
+end

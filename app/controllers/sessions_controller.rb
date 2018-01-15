@@ -1,7 +1,6 @@
 class SessionsController < Devise::SessionsController
 
 	def create
-		binding.pry
 		super
 
 		user_info = sign_user_into_api
