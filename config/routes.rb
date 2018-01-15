@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :users_admin, :controller => 'users', only: [:index, :create]
 
+  resources :divisions, only: [:index, :create, :update, :destroy]
   # resources :admin_users, only: [:index, :create]
 end

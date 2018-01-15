@@ -1,0 +1,20 @@
+<h1>Divisions</h1>
+
+<%= render "form", division: @division %>
+
+<br>
+<br>
+
+<% @divisions.each do |division| %>
+	<div class="division">
+		<%= division.name %>
+	</div>
+	<div class="edit">
+		<%= render "form", division: division %>	
+	</div>
+	<p>-------</p>
+	<%= link_to division_path(division), method: :delete, data: {confirm: "Are you sure?"} do %>
+		<i class="fa fa-trash-o" aria-hidden="true"></i>
+	<% end %>
+	<p>--------------------------------</p>
+<% end %>
