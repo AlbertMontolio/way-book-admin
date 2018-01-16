@@ -1,0 +1,114 @@
+<div class="edit-divisions-page">
+	
+	<div class="header">
+
+		<div class="title-wrapper">
+			<div class="name">
+				<%= @division.name %>
+			</div>
+
+			<div class="dropdown">
+				<div class="edit dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				</div>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				    <div class="dropdown-content">
+				    	<%= render "form", division: @division %>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="categories-company_skills-section">
+		<div class="categories-block">
+			<div class="new-category-title">
+				<i class="fa fa-plus" aria-hidden="true"></i>
+				Add category
+			</div>
+
+			<div class="new-category-form">
+				<%= render "categories/form", division: @division, category: @category %>
+			</div>
+
+			<div class="categories">
+				<% @division.categories.each do |category| %>
+					<div class="category">
+						<%= category.name %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="company_skills-block">
+			<% @division.categories.each do |category| %>
+				<div class="category-wrapper">
+					<div class="name">
+						<%= category.name %>
+					</div>
+
+					<div class="dropdown">
+						<div class="dropdown-toggle" id="dropdownMenuButtonEditCategory" data-toggle="dropdown">
+							<i class="fa fa-pencil-square-o icon" aria-hidden="true"></i>
+						</div>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEditCategory">
+						    <div class="dropdown-content">
+						    	<%= render "categories/form", division: @division, category: category %>
+						    </div>
+						</div>
+					</div>
+
+					<%= link_to category_path(category), method: :delete, class: "icon" do %>
+						<i class="fa fa-trash-o" aria-hidden="true"></i>
+					<% end %>
+
+					<div class="new-company-skill">
+						<%= render "company_skills/form", category: category, company_skill: @company_skill %>
+					</div>
+				</div>
+
+				<div class="company_skills">
+					<% category.company_skills.each do |company_skill| %>
+						<div class="company_skill-wrapper">
+							<div class="name">
+								<%= company_skill.name %>
+							</div>
+
+							<div class="dropdown">
+								<div class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
+									<i class="fa fa-pencil-square-o icon" aria-hidden="true"></i>
+								</div>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								    <div class="dropdown-content">
+								    	<%= render "company_skills/form", category: category, company_skill: company_skill %>
+								    </div>
+								</div>
+							</div>
+
+							<%= link_to category_company_skill_path(category, company_skill), method: :delete, data: { confirm: "Are you sure?" }, class: "icon" do %>
+								<i class="fa fa-trash-o" aria-hidden="true"></i>
+							<% end %>
+						</div>
+					<% end %>
+				</div>
+
+			<% end %>
+		</div>
+
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

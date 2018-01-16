@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   resources :users_admin, :controller => 'users', only: [:index, :create]
 
-  resources :divisions, only: [:index, :create, :update, :destroy]
-  # resources :admin_users, only: [:index, :create]
+  resources :divisions, only: [:index, :create, :update, :destroy, :edit] do
+  	resources :categories, only: [:edit, :update, :create, :destroy]
+  end
+
+  resources :categories do
+    resources :company_skills, only: [:create, :update, :destroy]
+  end
+
 end

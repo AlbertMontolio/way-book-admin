@@ -1,4 +1,4 @@
-<%= simple_form_for division do |f| %>
+<%= simple_form_for [division,category] do |f| %>
 	<%= f.input :name, label: false %>
 	<%= f.button :submit, class: "btn-submit" %>
 <% end %>
