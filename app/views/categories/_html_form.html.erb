@@ -1,0 +1,13 @@
+<form novalidate="novalidate" action="/divisions/<%= division_id %>/categories/<%= id %>" method="post">
+  <input type="hidden" name="utf8" type="hidden" value="✓">
+  <input type="hidden" name="_method" value="patch">
+  <!-- 
+  <input type="hidden" name="authentication_token" value="<%= @user_token %>">
+  -->
+
+  New name:<br>
+  <input type="text" name="name" value="<%= name %>"><br>
+  <input type="hidden" name="division_id" value="<%= division_id %>"><br>
+  <input type="hidden" name="id" value="<%= id %>"><br>
+  <input type="submit" value="Submit">
+</form>

@@ -4,34 +4,38 @@ class DivisionsController < ApplicationController
 	before_action :set_division, only: [:update, :destroy]
 
 	def index
-		@divisions = Division.all
+		@user_token = session["authentication_token"]
+		current_user_email = current_user.email
+
+		url = "http://localhost:3000/api/v1/divisions?user_email=#{current_user_email}&user_token=#{@user_token}"
+
+		html_file = open(url).read
+		@divisions = JSON.parse(html_file)
+
 		@division = Division.new
 	end
 
-	def edit
-		id = params[:id].to_i
-		@division = Division.find(id)
+	def update_api
+		id = params["id"]
+		name = params["name"]
 
-		@category = Category.new
-		@company_skill = CompanySkill.new
-	end
+		user_token = session["authentication_token"]
+		current_user_email = current_user.email
 
-	def create
-		@division = Division.new(strong_division_params)
-		@division.save
+		api_url = "http://localhost:3000/api/v1/divisions/#{id}?user_email=#{current_user_email}&user_token=#{user_token}"
+
+		response = HTTParty.patch(
+			api_url, body: {
+				division: {
+					id: id, name: name
+				}
+			}
+		)
+		JSON.parse(response.body)
+
 		redirect_to divisions_path
 	end
-
-	def update
-		@division.update(strong_division_params)
-		redirect_to edit_division_path(@division)
-	end
-
-	def destroy
-		@division.delete
-		redirect_to divisions_path
-	end
-
+	
 	private
 	def set_division
 		@division = Division.find(params[:id].to_i)

@@ -1,9 +1,6 @@
 <h1>Divisions</h1>
 
 <% @divisions.each do |division| %>
-	<div class="division">
-		<%= link_to edit_division_path(division) do %>
-			<%= division.name %>
-		<% end %>
-	</div>
+	<%= render "division", division: division %>
 <% end %>
+

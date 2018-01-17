@@ -1,30 +1,62 @@
 class CompanySkillsController < ApplicationController
 	before_action :set_company_skill, only: [:update, :destroy]
 
-	def create
-		category = Category.find(params[:category_id].to_i)
-		company_skill = CompanySkill.new(strong_company_skill_params)
-		company_skill.category = category
-		company_skill.save
+	def new_api
+		category_id = params["category_id"]
+		name = params["name"]
 
-		division = company_skill.category.division
+		user_token = session["authentication_token"]
+		current_user_email = current_user.email
 
-		redirect_to edit_division_path(division)
+		api_url = "http://localhost:3000/api/v1/company_skills/?user_email=#{current_user_email}&user_token=#{user_token}"
+
+		response = HTTParty.post(
+			api_url, body: {
+				company_skill: {
+					category_id: category_id, 
+					name: name
+				}
+			}
+		)
+		redirect_to divisions_path
 	end
 
-	def update
-		@company_skill.update(strong_company_skill_params)
+	def update_api
+		id = params["id"]
+		name = params["name"]
 
-		division = @company_skill.category.division
+		user_token = session["authentication_token"]
+		current_user_email = current_user.email
 
-		redirect_to edit_division_path(division)
+		api_url = "http://localhost:3000/api/v1/company_skills/#{id}?user_email=#{current_user_email}&user_token=#{user_token}"
+
+		response = HTTParty.patch(
+			api_url, body: {
+				company_skill: {
+					id: id,
+					name: name
+				}
+			}
+		)
+		redirect_to divisions_path
 	end
 
-	def destroy
-		division = @company_skill.category.division
-		@company_skill.destroy
+	def destroy_api
+		id = params["id"]
 
-		redirect_to edit_division_path(division)
+		user_token = session["authentication_token"]
+		current_user_email = current_user.email
+
+		api_url = "http://localhost:3000/api/v1/company_skills/#{id}?user_email=#{current_user_email}&user_token=#{user_token}"
+
+		response = HTTParty.delete(
+			api_url, body: {
+				company_skill: {
+					id: id,
+				}
+			}
+		)
+		redirect_to divisions_path		
 	end
 
 	private
