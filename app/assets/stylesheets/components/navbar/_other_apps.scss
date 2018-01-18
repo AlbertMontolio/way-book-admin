@@ -1,0 +1,48 @@
+.other-apps {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0px 20px;
+	i {
+		font-size: 18px;
+		color: rgb(120,120,120);
+	}
+	.icon:hover {
+		cursor: pointer;
+		color: #19b724;
+	}
+}
+
+.other-apps-content {
+	display: flex;
+	padding: 15px;
+	.link {
+		width: 91px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+		color: rgb(60,60,60);
+		font-size: 14px;
+		font-weight: lighter;
+		.icon {
+			color: rgb(80,80,80);
+			font-size: 30px;
+			margin-bottom: 7px;
+		}
+		&:hover {
+			text-decoration: none;
+			cursor: pointer;
+			color: #19b724;
+			i {
+				text-decoration: none;
+				color: #19b724;
+			}
+		}
+
+	}
+	
+}
