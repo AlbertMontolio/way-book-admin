@@ -1,16 +1,23 @@
 .index-divisions-wrapper {
 	display: flex;
-	flex-direction: row;
-	.division-wrapper {
-		margin-right: 210px;
-	}
-	.divisions-menu {
-		position: fixed;
-		right: 0px;
-		top: 60px;
-		height: 100vh;
-		padding-top: 200px;
-		width: 210px;
-		background-color: #f9f9e1;
+	justify-content: center;
+	.index-divisions-content {
+		display: flex;
+		flex-direction: row;
+		margin-top: 60px;
+		width: 1280px;
+		.icon-gray-clickable {
+			color: rgb(140,140,140);
+			&:hover {
+				color: black;
+				cursor: pointer;
+			}
+		}
+		a {
+			color: #19b724;
+		}
+		.dropdown-toggle::after {
+	    	display:none
+		}
 	}
 }

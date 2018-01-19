@@ -1,23 +1,19 @@
-<div class="edit-divisions-page">
-	
+<%= render "categories-menu", id: division["id"], division_categories: division["categories"] %>
+
+<div class="company_skills-block">
 	<%= render "header", name: division["name"], id: division["id"] %>
-
-	<div class="division-section">
+	<% division["categories"].each do |category| %>
 		
-		<%= render "categories-menu", id: division["id"], division_categories: division["categories"] %>
+		<%= render "division-category-header", category_name: category["name"], division_id: division["id"], category_id: category["id"], category_name: category["name"] %>
 
-		<div class="company_skills-block">
-			<% division["categories"].each do |category| %>
-				
-				<%= render "division-category-header", category_name: category["name"], division_id: division["id"], category_id: category["id"], category_name: category["name"] %>
-
-				<div class="company_skills">
-					<%= render "division_company_skills", category_company_skills: category["company_skills"], category_id: category["id"] %>
-				</div>
-			<% end %>
+		<div class="company_skills">
+			<%= render "division_company_skills", category_company_skills: category["company_skills"], category_id: category["id"] %>
 		</div>
-	</div>
+	<% end %>
 </div>
+
+
+
 
 
 

@@ -1,4 +1,16 @@
-.divisions-menu {
+.divisions-menu, .divisions-menu-content {
+	height: 100vh;
+	// padding-top: 200px;
+	flex-basis: 200px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.divisions-menu-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	background-color: #f9f9e1;
 	font-size: 14px;
 	padding: 30px 15px;
 	.division {

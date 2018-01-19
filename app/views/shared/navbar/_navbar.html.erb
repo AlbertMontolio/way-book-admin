@@ -1,38 +1,40 @@
-<div class="main-navbar">
-	<div class="main-navbar-left">
-		<%= link_to root_path do  %>
-			<div class="logo">
-				<%= image_tag("way-book-edited", size: "100x25") %>
-			</div>
-		<% end %>
-	</div>
-	<div class="main-navbar-right">
-		
-		<%= render "shared/navbar/other_apps" %>
+<div class="fixed-main-navbar">
+	<div class="main-navbar">
+		<div class="main-navbar-left">
+			<%= link_to root_path do  %>
+				<div class="logo">
+					<%= image_tag("way-book-edited", size: "100x25") %>
+				</div>
+			<% end %>
+		</div>
+		<div class="main-navbar-right">
+			
+			<%= render "shared/navbar/other_apps" %>
 
-	    <% if user_signed_in? %>
-		    <div class="dropdown navbar-item">
-		        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar avatar-cursor dropdown-toggle" data-toggle="dropdown">
+		    <% if user_signed_in? %>
+			    <div class="dropdown navbar-item">
+			        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar avatar-cursor dropdown-toggle" data-toggle="dropdown">
 
-		        <div class="dropdown-menu dropdown-menu-right">
-		        	<div class="avatar-navbar-content-wrapper">
-			        	<div class="user-name dd-item">
-			        		<%= current_user.email %>
-			        	</div>
-			        	
-			        	<div class="dd-item">
-					        <%= link_to destroy_user_session_path, method: :delete, class: "" do %>
-					          <i class="fa fa-sign-out icon"></i>
-					          Log out
-					        <% end %>
-			        	</div>
+			        <div class="dropdown-menu dropdown-menu-right">
+			        	<div class="avatar-navbar-content-wrapper">
+				        	<div class="user-name dd-item">
+				        		<%= current_user.email %>
+				        	</div>
+				        	
+				        	<div class="dd-item">
+						        <%= link_to destroy_user_session_path, method: :delete, class: "" do %>
+						          <i class="fa fa-sign-out icon"></i>
+						          Log out
+						        <% end %>
+				        	</div>
+					    </div>
 				    </div>
+			        
 			    </div>
-		        
-		    </div>
-		<% else %>
-      		<%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "login" %>
-        <% end %>
+			<% else %>
+	      		<%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "login" %>
+	        <% end %>
 
+		</div>
 	</div>
 </div>

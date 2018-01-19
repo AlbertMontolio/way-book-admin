@@ -1,0 +1,35 @@
+.division-wrapper {
+	display: flex;
+	flex-direction: row;
+	background-color: rgb(250,250,250);
+	font-size: 16px;
+	font-weight: lighter;
+
+	.categories-menu {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 10px 20px;
+		width: 250px;
+		background-color: #fdf4e8;
+		.categories {
+			margin-top: 20px;
+		}
+		.category {
+			margin-bottom: 6px;
+			&:hover {
+				cursor: pointer;
+				color: #19b724;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
