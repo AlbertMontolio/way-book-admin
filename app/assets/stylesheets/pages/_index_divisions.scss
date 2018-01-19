@@ -1,16 +1,14 @@
 .index-divisions-wrapper {
 	display: flex;
 	justify-content: center;
+	background-color: rgb(245,245,245);
 	.index-divisions-content {
-		// display: flex;
-		// flex-direction: row;
 		position: relative;
 		top: 0px;
 		left: 0px;
 		margin-top: 60px;
 		width: 1280px;
 		.icon-gray-clickable {
-			// color: rgb(140,140,140);
 			color: rgb(180,180,180);
 			&:hover {
 				color: black;
@@ -22,6 +20,9 @@
 		}
 		.dropdown-toggle::after {
 	    	display:none
+		}
+		.btn-active-green {
+			color: #19b724;
 		}
 	}
 }

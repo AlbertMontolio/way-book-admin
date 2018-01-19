@@ -3,7 +3,7 @@
 		
 		<div class="categories">
 			<% division_categories.each do |category| %>
-				<div class="category">
+				<div id="<%= category["id"] %>" class="category js-menu-category-name">
 					<%= category["name"] %>
 				</div>
 			<% end %>

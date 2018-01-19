@@ -8,7 +8,7 @@
 		<div class="divisions-menu">
 			<div class="divisions-menu-content">
 				<% @divisions.each_with_index do |division, index| %>
-					<div id="<%= index %>" class="js-division-btn division <%= "green-active" if index == 0 %>">
+					<div id="<%= index %>" class="js-division-btn division-name <%= "btn-active-green" if index == 0 %>">
 						<%= division["name"] %>
 					</div>
 				<% end %>

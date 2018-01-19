@@ -1,5 +1,4 @@
 <% if (defined?(name)).nil? %>
-
 	<%= form_tag company_skill_new_api_path, class: "edit-form" do %>
 	  <%= hidden_field_tag :category_id, category_id %>
 	  <%= label_tag :name, "Add new company skill", class: "label" %>
@@ -7,9 +6,7 @@
 
 	  <%= submit_tag "Sign in", class: "submit-btn" %>
 	<% end %>
-
 <% else %>
-
 	<%= form_tag company_skill_update_api_path, class: "edit-form" do %>
 	  <%= hidden_field_tag :id, id %>
 
@@ -18,7 +15,6 @@
 
 	  <%= submit_tag "Sign in", class: "submit-btn" %>
 	<% end %>
-
 <% end %>
 
 

@@ -1,7 +1,7 @@
 .divisions-menu, .divisions-menu-content {
-	height: 100vh;
+	height: calc(100% - 60px);
 	position: fixed;
-	top: 0px;
+	top: 60px;
 	right: 0px;
 	width: 200px;
 }
@@ -13,14 +13,11 @@
 	background-color: #f9f9e1;
 	font-size: 14px;
 	padding: 30px 15px;
-	.division {
+	.division-name {
 		margin-bottom: 15px;
 		&:hover {
 			cursor: pointer;
 			color: #19b724;
 		}
-	}
-	.green-active {
-		color: #19b724;
 	}
 }
