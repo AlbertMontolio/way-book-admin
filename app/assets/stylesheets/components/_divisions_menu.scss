@@ -1,9 +1,9 @@
 .divisions-menu, .divisions-menu-content {
 	height: 100vh;
-	// padding-top: 200px;
-	flex-basis: 200px;
-    flex-grow: 0;
-    flex-shrink: 0;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 200px;
 }
 .divisions-menu-content {
 	display: flex;

@@ -5,7 +5,13 @@
 	font-size: 16px;
 	font-weight: lighter;
 
-	.categories-menu {
+	.categories-menu-wrapper {
+		height: 100vh;
+		position: fixed;
+		top: 0px;
+		left: 0px;
+	}
+	.categories-menu-content {
 		height: 100vh;
 		display: flex;
 		flex-direction: column;

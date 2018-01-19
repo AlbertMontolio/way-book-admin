@@ -1,9 +1,9 @@
 <% if (defined?(name)).nil? %>
-	<%= form_tag category_new_api_path, class: "" do %>
+	<%= form_tag category_new_api_path, class: "edit-form" do %>
 	  <%= hidden_field_tag :division_id, division_id %>
-	  <%= label_tag :name %>
+	  <%= label_tag :name, "New category name", class: "label" %>
 	  <%= text_field_tag :name %>
-	  <%= submit_tag "Sign in" %>
+	  <%= submit_tag "Update", class: "submit-btn" %>
 	<% end %>
 <% else %>
 	<%= form_tag category_update_api_path, class: "edit-form" do %>

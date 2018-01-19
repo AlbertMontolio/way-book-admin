@@ -2,12 +2,16 @@
 	display: flex;
 	justify-content: center;
 	.index-divisions-content {
-		display: flex;
-		flex-direction: row;
+		// display: flex;
+		// flex-direction: row;
+		position: relative;
+		top: 0px;
+		left: 0px;
 		margin-top: 60px;
 		width: 1280px;
 		.icon-gray-clickable {
-			color: rgb(140,140,140);
+			// color: rgb(140,140,140);
+			color: rgb(180,180,180);
 			&:hover {
 				color: black;
 				cursor: pointer;
