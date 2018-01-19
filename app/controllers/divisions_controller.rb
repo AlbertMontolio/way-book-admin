@@ -11,8 +11,6 @@ class DivisionsController < ApplicationController
 
 		html_file = open(url).read
 		@divisions = JSON.parse(html_file)
-
-		@division = Division.new
 	end
 
 	def update_api
@@ -35,14 +33,4 @@ class DivisionsController < ApplicationController
 
 		redirect_to divisions_path
 	end
-	
-	private
-	def set_division
-		@division = Division.find(params[:id].to_i)
-	end
-
-	def strong_division_params
-		params.require(:division).permit(:name)
-	end
-
 end
