@@ -1,0 +1,18 @@
+<div class="categories-block">
+	<div class="new-category-title">
+		<i class="fa fa-plus" aria-hidden="true"></i>
+		Add category
+	</div>
+
+	<div class="new-category-form">
+		<%= render "categories/form_tag", division_id: id %>
+	</div>
+
+	<div class="categories">
+		<% division_categories.each do |category| %>
+			<div class="category">
+				<%= category["name"] %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="category-wrapper">
+	<div class="name">
+		<%= category_name %>
+	</div>
+
+	<div class="dropdown icon-gray-clickable">
+		<div class="dropdown-toggle" id="dropdownMenuButtonEditCategory" data-toggle="dropdown">
+			<i class="fa fa-pencil-square-o icon" aria-hidden="true"></i>
+		</div>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEditCategory">
+		    <div class="dropdown-content-edit-form">
+				<%= render "categories/form_tag", division_id: division_id, id: category_id, name: category_name %>
+		    </div>
+
+		</div>
+	</div>
+
+	<%= link_to category_destroy_api_path(id: category_id), method: :post, class: "icon icon-gray-clickable" do %>
+		<i class="fa fa-trash-o" aria-hidden="true"></i>
+	<% end %>
+
+	<!-- New company skill -->
+	<div class="dropdown icon-gray-clickable">
+		<div class="dropdown-toggle" id="dropdownMenuButtonEditCategory" data-toggle="dropdown">
+			<i class="fa fa-plus icon" aria-hidden="true"></i>
+		</div>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEditCategory">
+		    <div class="dropdown-content-edit-form">
+				<%= render "company_skills/form_tag", category_id: category_id %>
+		    </div>
+		</div>
+	</div>
+</div>

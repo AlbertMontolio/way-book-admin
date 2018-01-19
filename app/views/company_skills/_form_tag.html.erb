@@ -1,22 +1,22 @@
 <% if (defined?(name)).nil? %>
 
-	<%= form_tag company_skill_new_api_path do %>
+	<%= form_tag company_skill_new_api_path, class: "edit-form" do %>
 	  <%= hidden_field_tag :category_id, category_id %>
-	  <%= label_tag :name %>
+	  <%= label_tag :name, "Add new company skill", class: "label" %>
 	  <%= text_field_tag :name %>
 
-	  <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+	  <%= submit_tag "Sign in", class: "submit-btn" %>
 	<% end %>
 
 <% else %>
 
-	<%= form_tag company_skill_update_api_path do %>
+	<%= form_tag company_skill_update_api_path, class: "edit-form" do %>
 	  <%= hidden_field_tag :id, id %>
 
-	  <%= label_tag :name %>
+	  <%= label_tag :name, "New company skill", class: "label" %>
 	  <%= text_field_tag :name, name %>
 
-	  <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+	  <%= submit_tag "Sign in", class: "submit-btn" %>
 	<% end %>
 
 <% end %>

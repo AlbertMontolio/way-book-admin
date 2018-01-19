@@ -1,7 +1,6 @@
-<%= form_tag division_update_api_path do %>
+<%= form_tag division_update_api_path, class: "edit-form" do %>
   <%= hidden_field_tag :id, id %>
-  <%= label_tag :name %>
+  <%= label_tag :name, "New division name", class: "label" %>
   <%= text_field_tag :name, name %>
-
-  <%= submit_tag "Sign in", class: "btn btn-large btn-primary" %>
+  <%= submit_tag "Update", class: "submit-btn" %>
 <% end %>

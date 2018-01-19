@@ -1,0 +1,14 @@
+.divisions-menu {
+	font-size: 14px;
+	padding: 30px 15px;
+	.division {
+		margin-bottom: 15px;
+		&:hover {
+			cursor: pointer;
+			color: #19b724;
+		}
+	}
+	.green-active {
+		color: #19b724;
+	}
+}

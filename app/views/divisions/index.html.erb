@@ -1,6 +1,15 @@
-<h1>Divisions</h1>
+<div class="index-divisions-wrapper">
+	<% @divisions.each_with_index do |division, index| %>
+		<div id="content-division-id-<%= index %>" class="division-wrapper <%= 'hide' unless index == 0 %>">
+			<%= render "division", division: division, divisions: @divisions %>
+		</div>
+	<% end %>
 
-<% @divisions.each do |division| %>
-	<%= render "division", division: division %>
-<% end %>
-
+	<div class="divisions-menu">
+		<% @divisions.each_with_index do |division, index| %>
+			<div id="<%= index %>" class="js-division-btn division <%= "green-active" if index == 0 %>">
+				<%= division["name"] %>
+			</div>
+		<% end %>
+	</div>
+</div>

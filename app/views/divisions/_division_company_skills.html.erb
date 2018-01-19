@@ -1,0 +1,23 @@
+<% category_company_skills.each do |company_skill| %>
+	<div class="company_skill-wrapper">
+		<div class="name">
+			<%= company_skill["name"] %>
+		</div>
+
+		<div class="dropdown">
+			<div class="dropdown-toggle icon-gray-clickable" id="dropdownMenuButton" data-toggle="dropdown">
+				<i class="fa fa-pencil-square-o icon" aria-hidden="true"></i>
+			</div>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			    <div class="dropdown-content-edit-form">
+			    	<%= render "company_skills/form_tag", category_id: category_id, id: company_skill["id"], name: company_skill["name"] %>
+			    </div>
+			</div>
+		</div>
+
+		<%= link_to company_skill_destroy_api_path(id: company_skill["id"]), { method: :post } do %>
+			<i class="fa fa-trash-o icon-gray-clickable icon" aria-hidden="true"></i>
+		<% end %>
+
+	</div>
+<% end %>

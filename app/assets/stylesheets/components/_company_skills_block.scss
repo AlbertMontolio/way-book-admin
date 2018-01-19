@@ -1,0 +1,31 @@
+.company_skills-block {
+	// background-color: pink;
+	width: 100%;
+	padding: 20px;
+	.category-wrapper {
+		margin: 15px 0px;
+		display: flex;
+		.icon {
+			margin-left: 10px;
+		}
+	}
+	.company_skills {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.company_skill-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		font-size: 14px;
+		color: rgb(80,80,80);
+		border: 1px solid rgb(80,80,80);
+		border-radius: 100px;
+		padding: 2px 12px;
+		margin: 5px 5px;
+		.icon {
+			margin-left: 10px;
+		}
+	}
+}

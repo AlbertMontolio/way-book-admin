@@ -1,0 +1,42 @@
+.edit-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	.label {
+		margin: 0px;
+		padding: 0px;
+		color: rgb(70,70,70);
+		font-size: 14px;
+		font-weight: bold;
+	}
+	input {
+		width: 300px;
+		border: 1px solid rgb(200,200,200);
+		border-radius: 200px;
+		margin-top: 15px;
+		padding: 5px 10px;
+		font-size: 14px;
+		&:focus {
+			border: 1px solid #19b724;
+			box-shadow: 0px;
+			outline: 0px;
+		}
+	}
+	.submit-btn {
+		padding: 2px 5px;
+		width: 80px;
+		color: #19b724;
+		border: 1px solid #19b724;
+		border-radius: 200px;
+		margin: 20px auto 5px auto;
+		&:hover {
+			color: white;
+			background-color: #19b724;
+		}
+	}
+}
+
+.dropdown-content-edit-form {
+	font-size: 14px;
+	padding: 15px 25px;
+}
