@@ -1,0 +1,5 @@
+<%= simple_form_for user, :url => users_admin_index_path, :method => :post do |f| %>
+	<%= f.input :email %>
+	<%= f.input :password %>
+	<%= submit_tag "Create user", class: "submit-btn" %>
+<% end %>

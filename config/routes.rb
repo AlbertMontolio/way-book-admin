@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   # get "admin_users_index", to: "users#admin_users_index"
 
-  resources :users_admin, :controller => 'users', only: [:index, :create]
+  resources :users_admin, :controller => 'users', only: [:index, :create, :update, :destroy]
+  post "update_admin", to: "users#update_admin"
 
   resources :divisions, only: [:index, :create, :update, :destroy, :edit] do
     resources :categories, only: [:edit, :create, :destroy]

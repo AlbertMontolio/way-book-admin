@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 	  	html_file = open(url).read
 	  	json_response = JSON.parse(html_file)
 
-	  	@emails = json_response
+	  	@users = json_response
 
 	  	@user = User.new
 	end
@@ -49,10 +49,67 @@ class UsersController < ApplicationController
 		  	    	'Content-Type' => 'application/json',
 		  	    }
 		  	)
-		  	# binding.pry
 		  	JSON.parse(response.body)
 		end
-		redirect_to root_path
+		redirect_to users_admin_index_path
+	end
+
+	def update_admin
+		user_token = session["authentication_token"]
+	    current_user_email = current_user.email
+
+		user_id = params["user_id"]
+
+		update_url = "http://localhost:3000/api/v1/users/#{user_id}//update_admin?user_email=#{current_user_email}&user_token=#{user_token}"
+		# make patch request to the other db and save it
+		response = HTTParty.patch(update_url.to_str,
+		    :headers => { 
+		    	'Content-Type' => 'application/json',
+		    }
+		)
+		JSON.parse(response.body)
+		redirect_to users_admin_index_path
+	end
+
+	def update
+		user_token = session["authentication_token"]
+	    current_user_email = current_user.email
+
+		user_id = params["id"]
+		email = params["email"]
+
+		update_url = "http://localhost:3000/api/v1/users/#{user_id}?user_email=#{current_user_email}&user_token=#{user_token}"
+		# make patch request to the other db and save it
+		response = HTTParty.patch(update_url.to_str,
+			body: {
+		  	    email: email, 
+		  	}.to_json,
+		    :headers => { 
+		    	'Content-Type' => 'application/json',
+		    }
+		)
+		JSON.parse(response.body)
+		redirect_to users_admin_index_path
+	end
+
+	def destroy
+		user_token = session["authentication_token"]
+	    current_user_email = current_user.email
+
+		user_id = params["id"]
+
+		update_url = "http://localhost:3000/api/v1/users/#{user_id}?user_email=#{current_user_email}&user_token=#{user_token}"
+		# make patch request to the other db and save it
+		response = HTTParty.delete(update_url.to_str,
+			body: {
+		  	    id: user_id, 
+		  	}.to_json,
+		    :headers => { 
+		    	'Content-Type' => 'application/json',
+		    }
+		)
+		JSON.parse(response.body)
+		redirect_to users_admin_index_path
 	end
 
 	private

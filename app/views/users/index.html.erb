@@ -1,25 +1,37 @@
 <div class="users-index-page">
-	<%= simple_form_for @user, :url => users_admin_index_path, :method => :post do |f| %>
-		<%= f.input :email %>
-		<%= f.input :password %>
-		<%= submit_tag "Create user", class: "submit-btn" %>
-	<% end %>
+	
+	<%= render "new_form", user: @user %>
 
-	<% @emails.each do |user_hash| %>
+	<% @users.each do |user_hash| %>
 		<div class="user-wrapper">
 			<div class="email">
 				<%= user_hash["email"] %>
 			</div>
 			<div class="icons">
-				<div class="admin icon">
-					<i class="fa fa-users" aria-hidden="true"></i>
+				<%= link_to update_admin_path(user_id: user_hash["id"]), method: :post do %>
+					<div class="admin icon">
+						<% color = user_hash["admin"] ? "admin-green" : "admin-gray" %>
+						<i class="fa fa-users <%= color %>" aria-hidden="true"></i>
+					</div>
+				<% end %>
+
+				<!-- Update email -->
+				<div class="dropdown edit icon">
+					<div class="dropdown-toggle" id="dropdownMenuButtonEditCategory" data-toggle="dropdown">
+						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+					</div>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEditCategory">
+					    <div class="dropdown-content-edit-form">
+							<%= render "edit_form", user_id: user_hash["id"], email: user_hash["email"] %>
+					    </div>
+					</div>
 				</div>
-				<div class="edit icon">
-					<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				</div>
-				<div class="delete icon">
-					<i class="fa fa-trash-o" aria-hidden="true"></i>
-				</div>
+
+				<%= link_to users_admin_path(id: user_hash["id"]), method: :delete, data: { confirm: "Are you sure?" } do %>
+					<div class="delete icon">
+						<i class="fa fa-trash-o" aria-hidden="true"></i>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	<% end %>
