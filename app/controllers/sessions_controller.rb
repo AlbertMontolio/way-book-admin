@@ -1,7 +1,6 @@
 class SessionsController < Devise::SessionsController
 	def create
 		super
-
 		user_info = sign_user_into_api
 		session['authentication_token'] = user_info["authentication_token"]
 	end

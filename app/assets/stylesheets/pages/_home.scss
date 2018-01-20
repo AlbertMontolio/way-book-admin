@@ -1,1 +1,37 @@
-// Specific CSS for your home-page
+.home-page {
+	width: 100vw;
+	height: calc(100vh - 60px);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	.admin-logo-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 400px;
+		margin-right: 60px;
+		.logo {
+			color: rgb(200,200,200);
+			font-size: 200px;
+		}
+		.sentences {
+			font-family: 'Gloria Hallelujah', cursive;
+			text-align: center;
+			font-size: 30px;
+			display: flex;
+			flex-direction: column;
+			color: rgb(100,100,100);
+		}
+	}
+	.sign-in-wrapper {
+		// background-color: orange;
+		margin-top: 60px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+}
+

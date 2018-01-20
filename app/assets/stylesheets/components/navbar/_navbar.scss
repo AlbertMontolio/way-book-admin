@@ -47,6 +47,14 @@
 				}
 			}
 		}
+		.nav-btns {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			a {
+				text-decoration: none;
+			}
+		}
 		.login {
 			color: #19b724;
 			&:hover {
