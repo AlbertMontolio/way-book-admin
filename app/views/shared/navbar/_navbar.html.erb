@@ -8,6 +8,42 @@
 			<% end %>
 		</div>
 		<div class="main-navbar-right">
+
+			<% if user_signed_in? %>
+				<div class="nav-btns">
+					<%= link_to users_admin_index_path do %>
+						<div class="employees-btn nav-btn <%= @is_search_employee_page ? 'green' : 'gray' %>">
+							<div class="box-1">
+								<div class="icon-text-wrapper">
+									<i class="fa fa-address-book-o" aria-hidden="true"></i>
+									<div class="text">
+										Employees
+									</div>
+								</div>
+								<div class="box-2 <%= 'green-border' if @is_search_employee_page %>">
+									
+								</div>
+							</div>
+						</div>
+					<% end %>
+
+					<%= link_to divisions_path do %>
+						<div class="skills-btn nav-btn <%= @is_profiles_page ? 'green' : 'gray' %>">
+							<div class="box-1">
+								<div class="icon-text-wrapper">
+									<i class="fa fa-list" aria-hidden="true"></i>
+									<div class="text">
+										Skills
+									</div>
+								</div>
+								<div class="box-2 <%= 'green-border' if @is_profiles_page %>">
+									
+								</div>
+							</div>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 			
 			<%= render "shared/navbar/other_apps" %>
 
@@ -32,7 +68,7 @@
 			        
 			    </div>
 			<% else %>
-	      		<%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "login" %>
+	      		<%# = link_to t(".sign_in", default: "Login"), new_user_session_path, class: "login" %>
 	        <% end %>
 
 		</div>

@@ -1,0 +1,50 @@
+.nav-btn {
+	height: 60px;
+	&:hover {
+		text-decoration: none;
+		.icon-text-wrapper {
+			.text, i {
+				color: #19b724;
+			}
+		}
+	}
+	.box-1 {
+		height: 60px;
+		position: relative;
+		top: 0px;
+		left: 0px;
+		padding: 0px 14px;
+		.icon-text-wrapper {
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 14px;
+			// color: rgb(120, 120, 120);
+			i {
+				font-size: 18px;
+				margin-right: 4px;
+			}
+		}
+	}
+	.box-2 {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		height: 100%;
+		width: 100%;					
+		&:hover {
+			border-bottom: 4px solid #19b724;
+		}
+	}
+}
+
+.nav-btn.gray {
+	color: rgb(120, 120, 120);
+}
+.nav-btn.green {
+	color: #19b724;
+}
+.box-2.green-border {
+	border-bottom: 4px solid #19b724;
+}

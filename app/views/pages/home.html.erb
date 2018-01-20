@@ -1,2 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-page">
+	<div class="admin-logo-wrapper">
+		<div class="logo">
+			<i class="fa fa-user-circle-o" aria-hidden="true"></i>
+		</div>
+		<div class="sentences">
+			<div class="sentence">
+				Hi, Admin!
+			</div>
+			<div class="sentence">
+				Here you can manage all the users from WAY Book and all the skills :)
+			</div>
+		</div>
+	</div>
+
+	<% if user_signed_in? %>
+		<div class="menu-home">
+			<div class="card users">
+				
+			</div>
+			<div class="card skills">
+				
+			</div>
+		</div>
+	<% else %>
+		<div class="sign-in-wrapper">
+			<%= form_for(:user, :url => session_path(:user), html: {class: "sign-in-form"}) do |f| %>
+			  <%= f.text_field :email, placeholder: "frederik.müller@waygroup.de" %>
+			  <%= f.password_field :password, placeholder: "password", class: "placeholder" %>
+			  <div class="remember-me-wrapper">
+				  <%= f.check_box :remember_me %>
+				  <%= f.label :remember_me, class: "label-remember-me" %>
+			  </div>
+			  <%= f.submit 'Sign in', class: "submit-btn" %>
+			  <%= link_to "Forgot your password?", new_password_path(:user) %>
+			<% end %>
+		</div>
+	<% end %>
+
+</div>
