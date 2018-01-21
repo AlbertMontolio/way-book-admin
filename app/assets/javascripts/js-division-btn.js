@@ -4,10 +4,10 @@ const userDivisionBtns = document.querySelectorAll(".users-index-page .js-divisi
 let allBtn = document.querySelector(".js-all-division-btn-users");
 let allUsers = document.querySelectorAll(".user-wrapper");
 
+
 userDivisionBtns.forEach((divisionBtn) => {
 	divisionBtn.addEventListener("click", (event) => {
 		let divisionId = event.target.dataset.divisionBtnId;
-
 		let divisionUsers = document.querySelectorAll(`.js-user-wrapper-${divisionId}`);
 
 		allUsers.forEach((user) => {

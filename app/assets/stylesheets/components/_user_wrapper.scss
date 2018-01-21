@@ -20,9 +20,22 @@
 		}
 		.admin-green {
 			color: #19b724;
+			&:hover {
+				color: black;
+			}
 		}
 		.admin-gray {
 			color: rgb(200,200,200);
+			&:hover {
+				color: black;
+			}
+		}
+		.icon-gray {
+			color: rgb(200,200,200);
+			&:hover {
+				cursor: pointer;
+				color: black;
+			}
 		}
 	}
 }

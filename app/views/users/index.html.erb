@@ -12,15 +12,16 @@
 	</div>
 
 	<div class="new-user-wrapper">
-		<div class="new-user-header">
+		<div class="new-user-header" id="js-new-user-header">
 			<i class="fa fa-plus-circle icon" aria-hidden="true"></i>
 			<div class="text">
 				Add new user
 			</div>
 		</div>
-		<div class="new-form-wrapper hide">
-			<%= render "new_form", user: @user %>
-		</div>
+	</div>
+
+	<div class="new-form-wrapper" id="js-new-form-wrapper">
+		<%= render "new_form", user: @user %>
 	</div>
 	
 
