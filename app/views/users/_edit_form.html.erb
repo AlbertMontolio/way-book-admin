@@ -1,6 +1,6 @@
-<%= form_tag users_admin_path(id: user_id), method: :patch, class: "edit-form" do %>
-  <%= hidden_field_tag :id, user_id %>
+<%= form_tag users_admin_path(id: user_id), method: :patch, class: "edit-form", id: user_id do %>
+  <%= hidden_field_tag :id, user_id, id: "hidden-#{user_id}" %>
   <%= label_tag :email, "Email", class: "label" %>
-  <%= text_field_tag :email, email %>
+  <%= text_field_tag :email, email, id: "input-#{user_id}" %>
   <%= submit_tag "Update", class: "submit-btn" %>
 <% end %>

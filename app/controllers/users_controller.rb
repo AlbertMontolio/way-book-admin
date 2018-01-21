@@ -10,7 +10,10 @@ class UsersController < ApplicationController
 	  	html_file = open(url).read
 	  	json_response = JSON.parse(html_file)
 
-	  	@users = json_response
+	  	users = json_response
+	  	@admins = users.select { |user_hash| user_hash["admin"] }
+	  	@employees = users.reject { |user_hash| user_hash["admin"] }
+	  	@divisions = users.map { |user_hash| [user_hash["division"]["name"], user_hash["division"]["id"]] }.uniq!
 
 	  	@user = User.new
 	end

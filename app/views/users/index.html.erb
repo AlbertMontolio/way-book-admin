@@ -1,38 +1,42 @@
 <div class="users-index-page">
-	
-	<%= render "new_form", user: @user %>
 
-	<% @users.each do |user_hash| %>
-		<div class="user-wrapper">
-			<div class="email">
-				<%= user_hash["email"] %>
+	<div class="divisions-wrapper">
+		<div class="division division-green js-all-division-btn-users">
+			All divisions
+		</div>
+		<% @divisions.each_with_index do |division| %>
+			<div class="division js-division-btn-users division-black" data-division-btn-id="<%= division.last %>">
+				<%= division.first %>
 			</div>
-			<div class="icons">
-				<%= link_to update_admin_path(user_id: user_hash["id"]), method: :post do %>
-					<div class="admin icon">
-						<% color = user_hash["admin"] ? "admin-green" : "admin-gray" %>
-						<i class="fa fa-users <%= color %>" aria-hidden="true"></i>
-					</div>
-				<% end %>
+		<% end %>
+	</div>
 
-				<!-- Update email -->
-				<div class="dropdown edit icon">
-					<div class="dropdown-toggle" id="dropdownMenuButtonEditCategory" data-toggle="dropdown">
-						<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-					</div>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButtonEditCategory">
-					    <div class="dropdown-content-edit-form">
-							<%= render "edit_form", user_id: user_hash["id"], email: user_hash["email"] %>
-					    </div>
-					</div>
-				</div>
-
-				<%= link_to users_admin_path(id: user_hash["id"]), method: :delete, data: { confirm: "Are you sure?" } do %>
-					<div class="delete icon">
-						<i class="fa fa-trash-o" aria-hidden="true"></i>
-					</div>
-				<% end %>
+	<div class="new-user-wrapper">
+		<div class="new-user-header">
+			<i class="fa fa-plus-circle icon" aria-hidden="true"></i>
+			<div class="text">
+				Add new user
 			</div>
 		</div>
-	<% end %>
+		<div class="new-form-wrapper hide">
+			<%= render "new_form", user: @user %>
+		</div>
+	</div>
+	
+
+	<div class="users-wrapper">
+		
+		<div class="col-wrapper">
+			<% @admins.each do |user_hash| %>
+				<%= render "user_hash", user_hash: user_hash %>
+			<% end %>
+		</div>
+
+		<div class="col-wrapper">
+			<% @employees.each do |user_hash| %>
+				<%= render "user_hash", user_hash: user_hash %>
+			<% end %>
+		</div>
+
+	</div>
 </div>

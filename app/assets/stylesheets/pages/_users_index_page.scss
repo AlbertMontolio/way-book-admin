@@ -5,9 +5,62 @@
 	flex-direction: column;
 	// justify-content: center;
 	align-items: center;
+	.divisions-wrapper {
+		margin-top: 80px;
+		display: flex;
+		// background-color: white;
+		.division {
+			background-color: white;
+			padding: 5px 10px;
+			font-size: 16px;
+			// font-weight: ligther;
+			
+			border-radius: 5px;
+			margin: 5px;
+			&:hover {
+				color: #19b724;
+				border: 1px solid #19b724;
+				cursor: pointer;
+			}
+		}
+		.division-green {
+			color: #19b724;
+			border: 1px solid #19b724;
+		}
+		.division-black {
+			color: rgb(70,70,70);
+			border: 1px solid rgb(70,70,70);
+		}
+	}
+	.new-user-wrapper {
+		flex: display;
+		flex-direction: column;
+		.new-user-header {
+			margin: 10px 0px 30px 0px;
+			display: flex;
+			align-items: center;
+			color: rgb(70,70,70);
+			font-size: 16px;
+			i {
+				margin-right: 5px;
+			}
+			&:hover {
+				cursor: pointer;
+				color: rgb(200,200,200);
+			}
+		}
+		
+	}
+	.users-wrapper {
+		display: flex;
+		flex-direction: row;
+		.col-wrapper {
+			margin: 10px;
+		}
+	}
 	#new_user {
 		width: 400px;
-		margin: 100px 0px 40px 0px;
+		margin: 40px 0px 40px 0px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
